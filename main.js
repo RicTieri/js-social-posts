@@ -105,15 +105,18 @@ const likedPosts = [];
 for (let i = 0; i < posts.length; i++) {
     let likeBtn = document.querySelector('a[data-postid="' + posts[i].id + '"]');
     let clicked = false;
-    let likeCounter = document.querySelector('b#like-counter-' + [i]);
-    likeCounter.innerHTML = i
+    let likeCounter;
     likeBtn.addEventListener('click', function () {
+        likeCounter = document.querySelector('b#like-counter-' + [i + 1]);
         if (!clicked) {
             likeBtn.classList.toggle('like-button--liked');
             clicked = true;
             likedPosts.push({ post_id: posts[i].id });
+            likeCounter.innerText = parseInt(likeCounter.innerText) + 1;
         } else {
             clicked = false;
+            likeBtn.classList.toggle('like-button--liked');
+            likeCounter.innerText = parseInt(likeCounter.innerText) - 1;
         }
     })
 }
