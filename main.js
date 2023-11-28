@@ -79,7 +79,7 @@ const posts = [
     {
         "id": 8,
         "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-        "media": "./DSC_5574.jpg",
+        "media": "./DSC_7547.jpg",
         "author": {
             "name": "Riccardo Tieri",
             "image": "./DSC_5069.jpg"
@@ -103,7 +103,7 @@ posts.forEach((post) => {
 const likedPosts = [];
 
 for (let i = 0; i < posts.length; i++) {
-    let likeBtn = document.querySelector('a[data-postid="' + posts[i].id + '"]');
+    let likeBtn = document.querySelector('button[data-postid="' + posts[i].id + '"]');
     let clicked = false;
     let likeCounter;
     likeBtn.addEventListener('click', function () {
@@ -146,10 +146,10 @@ function createPostFrom(obj) {
         <div class="post__footer">
             <div class="likes js-likes">
                 <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="${obj.id}">
+                    <button class="like-button  js-like-button" data-postid="${obj.id}">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
-                    </a>
+                    </button>
                 </div>
                 <div class="likes__counter">
                     Piace a <b id="like-counter-${obj.id}" class="js-likes-counter">${obj.likes}</b> persone
