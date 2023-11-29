@@ -59,7 +59,7 @@ const posts = [
         "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
         "media": "https://unsplash.it/600/400?image=24",
         "author": {
-            "name": "Luca Formicola",
+            "name": "Luca flamenco",
             "image": null
         },
         "likes": 56,
@@ -164,8 +164,12 @@ function createPostFrom(obj) {
 
 function profilePicDefault(userName) {
     let nameParts = userName.split(' ');
-    let sign = nameParts[0].charAt(0) + nameParts[1].charAt(0);
-    console.log(sign)
+    let sign;
+    if (nameParts.length == 1) {
+        sign = nameParts[0].charAt(0) + nameParts[0].charAt(1)
+    } else {
+        sign = nameParts[0].charAt(0) + nameParts[1].charAt(0);
+    }
     return `
     <div class="profile-pic-default">
         <span>${sign}</span>
