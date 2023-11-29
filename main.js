@@ -105,19 +105,18 @@ for (let i = 0; i < posts.length; i++) {
     let likeBtn = document.querySelector('a[data-postid="' + posts[i].id + '"]');
     let clicked = false;
     let likeCounter;
-    likeBtn.addEventListener('click', function () {
+    likeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
         likeCounter = document.querySelector('b#like-counter-' + [i + 1]);
         if (!clicked) {
             likeBtn.classList.toggle('like-button--liked');
             clicked = true;
             likedPosts.push({ post_id: posts[i].id });
-            console.log(likedPosts)
             likeCounter.innerText = parseInt(likeCounter.innerText) + 1;
         } else {
             clicked = false;
             likeBtn.classList.toggle('like-button--liked');
             likedPosts.pop({ post_id: posts[i].id });
-            console.log(likedPosts)
             likeCounter.innerText = parseInt(likeCounter.innerText) - 1;
         }
     })
