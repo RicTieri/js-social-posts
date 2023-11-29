@@ -112,10 +112,13 @@ for (let i = 0; i < posts.length; i++) {
             likeBtn.classList.toggle('like-button--liked');
             clicked = true;
             likedPosts.push({ post_id: posts[i].id });
+            console.log(likedPosts)
             likeCounter.innerText = parseInt(likeCounter.innerText) + 1;
         } else {
             clicked = false;
             likeBtn.classList.toggle('like-button--liked');
+            likedPosts.pop({ post_id: posts[i].id });
+            console.log(likedPosts)
             likeCounter.innerText = parseInt(likeCounter.innerText) - 1;
         }
     })
