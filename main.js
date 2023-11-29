@@ -95,7 +95,6 @@ const container = document.getElementById('container');
 posts.forEach((post) => {
     container.innerHTML += createPostFrom(post);
     if (post.author.image == null) {
-        document.querySelector('.post-meta__icon-' + post.id).innerHTML = '';
         document.querySelector('.post-meta__icon-' + post.id).innerHTML = profilePicDefault(post.author.name);
     }
 })
